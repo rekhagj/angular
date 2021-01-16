@@ -1,0 +1,15 @@
+<p>{{serverName}} server is running on port {{serverPort}}  works!</p>
+<p [ngStyle]="{color:getColor()}"
+[ngClass]="{online:isServer==='online'}">server is {{isServer}} </p>
+<label>Add Server</label>
+<!-- <input type = "text" (input)="onEnterName($event)"> -->
+<input type = "text" [(ngModel)]="serverCreation">
+<!-- <p>{{serverCreation}}</p> -->
+<p *ngIf = "isServerCreated else noServer"  >Server created with the name {{serverCreation}}</p>
+<ng-template #noServer>
+    <P>No server created</P>
+</ng-template>
+<button type = "button" [disabled] ="!allowNewServer" 
+(click)="onCreateServer()"> Add Server </button>
+<p>{{server}}</p>
+<p *ngFor="let rekha of servers">{{serverName}}</p>
